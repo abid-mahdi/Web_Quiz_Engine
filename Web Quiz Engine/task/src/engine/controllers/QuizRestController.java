@@ -54,7 +54,7 @@ public class QuizRestController {
         return new ResponseEntity<>(quizService.checkQuizSubmission(id, answer, principal.getName()), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/quizzes/completed")
+    @GetMapping(path = "/quizzes/completed", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Page<Completed>> getCompletedQuizzes(@RequestParam(defaultValue = "0") int page,
                                                                @Autowired Principal principal) {
         return new ResponseEntity<>(quizService.getCompletedQuizzes(principal.getName(), page), HttpStatus.OK);
